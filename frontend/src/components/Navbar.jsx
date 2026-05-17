@@ -28,14 +28,14 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
         />
 
         <div className="flex items-center gap-4 font-bold text-sm uppercase">
-          
+
           {user ? (
             // ইউজার লগইন থাকলে
             <>
               <span className="text-gray-700">
                 👋 Hi, <span className="text-blue-700">{user.username}</span>
               </span>
-              <button 
+              <button
                 onClick={handleLogout}
                 className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
               >
@@ -54,7 +54,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
             onClick={() => setIsCartOpen(true)}
             className="text-blue-700 border border-blue-200 px-4 py-2 rounded-lg bg-blue-50"
           >
-            Cart ({cart.length})
+            Cart ({cart.total_items || 0})  {/* cart.length এর বদলে */}
           </button>
         </div>
       </div>

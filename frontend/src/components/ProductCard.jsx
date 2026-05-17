@@ -4,11 +4,14 @@ import { useCart } from '../context/CartContext';
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
 
-  const handleAddToCart = (e) => {
-    e.preventDefault();  // Link click হবে না
+  const handleAddToCart = async (e) => {
+    e.preventDefault();
     e.stopPropagation();
-    addToCart(product);
-  };
+    const result = await addToCart(product);
+    if (result.needLogin) {
+      // login pageএ পাঠাতে চাইলে এখানে navigate করতে পারেন
+    }
+};
 
   return (
     <Link to={`/product/${product.id}`}>

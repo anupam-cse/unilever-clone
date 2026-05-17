@@ -24,13 +24,12 @@ const ProductDetails = () => {
             });
     }, [id]);
 
-    const handleAddToCart = () => {
-        // Multiple quantity add করার জন্য
-        for (let i = 0; i < quantity; i++) {
-            addToCart(product);
-        }
-        setIsCartOpen(true);  // Cart sidebar খুলে দাও
-    };
+    const handleAddToCart = async () => {
+    const result = await addToCart(product, quantity);
+    if (result.success) {
+        setIsCartOpen(true);
+    }
+};
 
     const handleBuyNow = () => {
         handleAddToCart();
