@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import ProductDetails from './pages/ProductDetails';  // নতুন
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,25 +16,19 @@ function App() {
     <Router>
       <CartProvider>
         <div className="min-h-screen flex flex-col bg-gray-50">
-          
-          {/* ১. Navbar - সবার উপরে */}
           <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          
-          {/* ২. Cart Sidebar */}
           <CartSidebar />
 
-          {/* ৩. Main Content - মাঝে */}
           <div className="flex-1">
             <Routes>
               <Route path="/" element={<Home searchTerm={searchTerm} />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/product/:id" element={<ProductDetails />} />  {/* নতুন */}
             </Routes>
           </div>
 
-          {/* ৪. Footer - সবার নিচে */}
           <Footer />
-
         </div>
       </CartProvider>
     </Router>
