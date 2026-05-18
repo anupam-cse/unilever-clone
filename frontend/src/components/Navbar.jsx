@@ -30,11 +30,13 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
         <div className="flex items-center gap-4 font-bold text-sm uppercase">
 
           {user ? (
-            // ইউজার লগইন থাকলে
             <>
               <span className="text-gray-700">
                 👋 Hi, <span className="text-blue-700">{user.username}</span>
               </span>
+              <Link to="/my-orders" className="text-blue-700 hover:underline">
+                My Orders
+              </Link>
               <button
                 onClick={handleLogout}
                 className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"

@@ -8,6 +8,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ProductDetails from './pages/ProductDetails';  // নতুন
+import Checkout from './pages/Checkout';
+import OrderSuccess from './pages/OrderSuccess';
+import MyOrders from './pages/MyOrders';
+
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,6 +29,12 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/product/:id" element={<ProductDetails />} />  {/* নতুন */}
+
+
+              // Routes এর ভেতরে যোগ করুন:
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/order-success/:orderId" element={<OrderSuccess />} />
+              <Route path="/my-orders" element={<MyOrders />} />
             </Routes>
           </div>
 
